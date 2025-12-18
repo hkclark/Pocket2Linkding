@@ -65,6 +65,13 @@ Or, for Windows:
 * View the help info: `.\venv\Scripts\python.exe .\Pocket2Linkding.py -h`
 * Run the migration: `.\venv\Scripts\python.exe .\Pocket2Linkding.py -d .`
 
+### Using Docker
+
+You can run this command to execute the process inside Docker, and not worry about polluting your environment or running scary scripts. This assumes you've downloaded the script itself to `$HOME/Downloads`, and have put the `part_######.csv` files in `$Home/Downloads/pocket`; the output will go into the latter directory.
+
+```
+docker run -it --rm -w /in -v "$HOME"/Downloads/Pocket2Linkding.py:/app/Pocket2Linkding.py -v $HOME/Downloads/pocket:/in astral/uv:bookworm-slim uv run /app/Pocket2Linkding.py --pocket_export_dir /in
+```
 
 ## Import Into linkding
 
